@@ -1,40 +1,37 @@
-// ===== TYPING EFFECT =====
-const text = "Cybersecurity Enthusiast";
+// Typing Effect Text
+const text = "Hello, I'm Arslan Brall";
 let i = 0;
 
-function typing() {
-  const el = document.querySelector(".typing");
-
-  if (!el) return;
-
-  // reset once
-  if (i === 0) el.innerHTML = "";
-
-  if (i < text.length) {
-    el.innerHTML += text.charAt(i);
-    i++;
-    setTimeout(typing, 90);
-  }
+function typing(){
+    if(i < text.length){
+        document.querySelector(".typing").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typing,100);
+    }
 }
-
 typing();
 
+// Particle Background
+const canvas = document.getElementById("bg");
+const ctx = canvas.getContext("2d");
 
-// ===== SCROLL REVEAL (PRO METHOD - CLEAN) =====
-const sections = document.querySelectorAll(".section");
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
 
-function revealOnScroll() {
-  const triggerBottom = window.innerHeight - 100;
+let particles = [];
 
-  sections.forEach(section => {
-    const sectionTop = section.getBoundingClientRect().top;
-
-    if (sectionTop < triggerBottom) {
-      section.classList.add("active");
-    }
-  });
+for(let i=0;i<80;i++){
+    particles.push({
+        x:Math.random()*canvas.width,
+        y:Math.random()*canvas.height,
+        r:Math.random()*3
+    });
 }
 
-// run on scroll + load
-window.addEventListener("scroll", revealOnScroll);
-window.addEventListener("load", revealOnScroll);
+function draw(){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+
+    ctx.fillStyle="#00ffff";
+    particles.forEach(p=>{
+        ctx.beginPath();
+setInterval(draw,30);
