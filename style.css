@@ -1,94 +1,65 @@
-/* ===== GLOBAL ===== */
-body {
-  margin: 0;
-  font-family: "Segoe UI", sans-serif;
-  background: #0a0f1a;
-  color: #ffffff;
-  scroll-behavior: smooth;
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+font-family:Arial;
 }
 
-/* ===== SECTION BASE ===== */
-.section {
-  padding: 80px 20px;
+body{
+background:#050816;
+color:white;
+overflow-x:hidden;
 }
 
-/* ===== HEADINGS ===== */
-h2 {
-  color: #00e5ff;
-  text-align: center;
-  margin-bottom: 30px;
-  letter-spacing: 1px;
+/* Particle canvas */
+#bg{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+z-index:-1;
 }
 
-/* ===== GRID SYSTEM ===== */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
-  max-width: 1100px;
-  margin: auto;
+/* Sidebar */
+.sidebar{
+position:fixed;
+left:0;
+top:0;
+width:220px;
+height:100%;
+background:#0b1023;
+padding:20px;
 }
 
-/* ===== CARD STYLE (GLASS + GLOW) ===== */
-.card,
-.skill-card,
-.project-card,
-.cert-card {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(0, 229, 255, 0.3);
-  padding: 20px;
-  border-radius: 14px;
-  transition: 0.3s ease;
-  backdrop-filter: blur(10px);
+.sidebar a{
+display:block;
+color:white;
+margin:20px 0;
+text-decoration:none;
+transition:0.3s;
 }
 
-/* HOVER EFFECT */
-.card:hover,
-.skill-card:hover,
-.project-card:hover,
-.cert-card:hover {
-  transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 0 25px #00e5ff;
-  border-color: #00e5ff;
+.sidebar a:hover{
+color:#00ffff;
+transform:translateX(10px);
 }
 
-/* ===== SKILL CARD TEXT ===== */
-.skill-card {
-  text-align: center;
-  font-weight: 500;
+.main{
+margin-left:220px;
+padding:40px;
 }
 
-/* ===== PROJECT CARD ===== */
-.project-card h3 {
-  color: #00ff88;
-  margin-bottom: 10px;
+.section{
+min-height:100vh;
+animation:fadeIn 1s ease;
 }
 
-/* ===== CERT CARD ===== */
-.cert-card {
-  text-align: center;
+@keyframes fadeIn{
+from{opacity:0;transform:translateY(50px)}
+to{opacity:1;transform:translateY(0)}
 }
 
-/* ===== LINKS ===== */
-a {
-  color: #00ff88;
-  text-decoration: none;
-  transition: 0.3s;
-}
-
-a:hover {
-  color: #00e5ff;
-  text-shadow: 0 0 10px #00e5ff;
-}
-
-/* ===== REVEAL ANIMATION ===== */
-.reveal {
-  opacity: 0;
-  transform: translateY(50px);
-  transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1);
-}
-
-.reveal.active {
-  opacity: 1;
-  transform: translateY(0);
+h1,h2{
 }
