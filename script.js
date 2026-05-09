@@ -1,11 +1,14 @@
-// ===== TYPING EFFECT (FIXED) =====
+// ===== TYPING EFFECT (FIXED + SAFE) =====
 const text = "Cybersecurity Enthusiast";
 let i = 0;
 
 function typing() {
   const el = document.querySelector(".typing");
 
-  if (i === 0) el.innerHTML = ""; // prevent duplicate text
+  if (!el) return;
+
+  // reset once at start
+  if (i === 0) el.innerHTML = "";
 
   if (i < text.length) {
     el.innerHTML += text.charAt(i);
@@ -17,25 +20,29 @@ function typing() {
 typing();
 
 
-// ===== SCROLL REVEAL ANIMATION (IMPROVED) =====
+// ===== SCROLL ANIMATION (SMOOTH + PROFESSIONAL) =====
 const sections = document.querySelectorAll(".section");
 
-// set initial state
+// initial hidden state
 sections.forEach(sec => {
   sec.style.opacity = "0";
-  sec.style.transform = "translateY(50px)";
-  sec.style.transition = "0.8s ease";
+  sec.style.transform = "translateY(40px)";
+  sec.style.transition = "all 0.8s ease";
 });
 
-window.addEventListener("scroll", () => {
-  const triggerBottom = window.innerHeight - 100;
+function revealOnScroll() {
+  const trigger = window.innerHeight - 100;
 
   sections.forEach(sec => {
-    const boxTop = sec.getBoundingClientRect().top;
+    const top = sec.getBoundingClientRect().top;
 
-    if (boxTop < triggerBottom) {
+    if (top < trigger) {
       sec.style.opacity = "1";
       sec.style.transform = "translateY(0)";
     }
   });
-});
+}
+
+// run on scroll + on load
+window.addEventListener("scroll", revealOnScroll);
+window.addEventListener("load", revealOnScroll);
