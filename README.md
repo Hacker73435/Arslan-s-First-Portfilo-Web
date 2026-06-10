@@ -34,9 +34,6 @@ This project is a personal portfolio website developed to showcase my skills, pr
 project-root/
 │
 ├── index.html
-├── about.html
-├── projects.html
-├── contact.html
 │
 ├── css/
 │   └── style.css
@@ -44,10 +41,6 @@ project-root/
 ├── js/
 │   └── script.js
 │
-└── assets/
-    ├── images/
-    └── icons/
-```
 
 ## Installation
 
@@ -64,7 +57,7 @@ cd YOUR_REPOSITORY
 ```
 
 3. Open `index.html` in your browser.
-
+   
 ## Usage
 
 This portfolio can be used to:
